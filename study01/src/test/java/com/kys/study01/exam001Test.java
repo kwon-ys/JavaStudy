@@ -24,13 +24,15 @@ public class exam001Test {
         assertThat(10).isLessThan(math.subTest001(100, 70)); // 답이 30보다 작으면 통과
         assertThat(301).isGreaterThan(math.subTest001(1000, 700)); //답이 300보다 크면 통과
 
-        //예외가 발생해야지만 정상 동작으로 인식한다.
+        // Exception 예외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.subTest001(70000, 7)).isInstanceOf(Exception.class);
+        // RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
         Throwable exception = assertThrows(RuntimeException.class, () -> {
-            math.subTest001(2330, 50002);
+            math.subTest001(222, 55555);
         });
         System.out.println(exception.toString());
     }
+
     @Test
     public void multiply001() throws Exception{
         // given
@@ -41,5 +43,18 @@ public class exam001Test {
         assertThat(513).isEqualTo(math.mathTest002(27,19));
         assertThatThrownBy(() -> math.mathTest002(-1, 10)).isInstanceOf(Exception.class);
         assertThatThrownBy(() -> math.mathTest002(10, 101)).isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void comparison001() throws Exception{
+        // given
+        MathExam math = new MathExam();
+        // when
+        // then
+        assertThat(-1).isEqualTo(math.mathTest004(2,3));
+        assertThat(1).isEqualTo(math.mathTest004(11,11));
+        assertThat(-1).isEqualTo(math.mathTest004(7,99));
+        assertThatThrownBy(() -> math.mathTest004(-1, 10000)).isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.mathTest004(10000, 10001)).isInstanceOf(Exception.class);
     }
 }
