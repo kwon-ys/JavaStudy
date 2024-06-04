@@ -86,7 +86,24 @@ public class exam001Test {
         Throwable ex3 = assertThrows(Exception.class, () -> math.exam120818(10001));  //price의 1의 자리가 0이 아닐 때
         System.out.println(ex3.toString());
 
+        assertThat(math.exam120818(50000)).isEqualTo(50000);
         assertThat(math.exam120818(150000)).isEqualTo(142500);
+        assertThat(math.exam120818(350000)).isEqualTo(315000);
         assertThat(math.exam120818(580000)).isEqualTo(464000);
+    }
+
+    @Test
+    public void exam120837() throws Exception{
+        System.out.println("exam120837");
+        MathExam math = new MathExam();
+
+        Throwable ex1 = assertThrows(Exception.class, () -> math.exam120837(-1));    //0보다 작을 때
+        System.out.println(ex1.toString());
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120837(1001)); //1000보다 클 때
+        System.out.println(ex2.toString());
+
+        assertThat(math.exam120837(23)).isEqualTo(5);
+        assertThat(math.exam120837(24)).isEqualTo(6);
+        assertThat(math.exam120837(999)).isEqualTo(201);
     }
 }
