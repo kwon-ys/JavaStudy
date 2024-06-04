@@ -52,7 +52,7 @@ public class MathExam {
     }
 
     public int exam120818(int price) throws Exception {
-        if(price <= 10 || price >= 1000000){
+        if(price < 10 || price > 1000000){
             throw new Exception(String.format("price 값은 10 ~ 1000000 사이의 값이어야 합니다."));
         }
         if(price % 10 != 0){
@@ -62,13 +62,13 @@ public class MathExam {
         if(price < 100000){
             result = price;
         }
-        if(price >= 100000 && price < 300000){
+        else if(price < 300000){
             result = price * 0.95;
         }
-        if(price >= 300000 && price < 500000){
+        else if(price < 500000){
             result = price * 0.9;
         }
-        if(price >= 500000){
+        else {
             result = price * 0.8;
         }
         return (int) result;
@@ -124,6 +124,52 @@ public class MathExam {
             }
         }
 
+        return result;
+    }
+
+    public int[] exam120824(int[] num_list) throws Exception{
+        if(num_list == null){
+            throw new Exception(String.format("num_list는 null이 아니어야 합니다"));
+        }
+        if(num_list.length <= 0 || num_list.length > 100){
+            throw new Exception(String.format("num_list배열의 길이는 1~100개 입니다"));
+        }
+        int[] result = new int[] {0, 0};
+        for (int i = 0; i < num_list.length; i++){
+            if(num_list[i] < 0 || num_list[i] > 1000) {
+                throw new Exception(String.format("num_list[%d], 값 : %d의 범위는 0~1000 입니다", i, num_list[i]));
+            }
+            if(num_list[i] % 2 == 0){
+                result[0]++;
+            } else {
+                result[1]++;
+            }
+        }
+        return result;
+    }
+
+    public int[] exam120899(int[] array) throws Exception{
+        if(array == null){
+            throw new Exception(String.format("array 는 null 이 아니어야 합니다"));
+        }
+        if(array.length <= 0 || array.length > 100){
+            throw new Exception(String.format("array 배열의 길이는 1~100개 입니다"));
+        }
+        int[] result = new int[] {0, 0};
+        for (int i = 0; i < array.length; i++){
+            for (int j = i+1; j < array.length; j++){
+                if(array[i] == array[j]){
+                    throw new Exception(String.format("중복 금지"));
+                }
+            }
+            if(array[i] < 0 || array[i] > 1000) {
+                throw new Exception(String.format("array[%d], 값 : %d의 범위는 0~1000 입니다", i, array[i]));
+            }
+            if (result[0] < array[i]) {
+                result[0] = array[i];
+                result[1] = i;
+            }
+        }
         return result;
     }
 }
