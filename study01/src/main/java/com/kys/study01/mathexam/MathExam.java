@@ -62,7 +62,7 @@ public class MathExam {
         if(price >= 100000){
             result = price * 0.95;
         }
-        if(price >= 300000 || price < 500000){
+        if(price >= 300000 && price < 500000){
             result = price * 0.9;
         }
         if(price >= 500000){
