@@ -50,4 +50,9 @@ public class MathExam {
         }
         return result;
     }
+
+    public int exam120818(int price) throws Exception {
+        
+        return 0;
+    }
 }
