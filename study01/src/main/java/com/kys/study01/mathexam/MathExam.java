@@ -31,4 +31,23 @@ public class MathExam {
         return n1 == n2 ? 1 : -1;
     }
 
+    public int exam120585(int[] array, int heigth) throws Exception {
+        if(array == null || array.length <= 0 || array.length > 100){
+            throw new Exception(String.format("array는  null이 아니고, 길이가 1~100 이어야합니다"));
+        }
+        if(heigth <= 0 || heigth > 200){
+            throw new Exception(String.format("height [%d]는 1~200 이어야합니다", heigth));
+        }
+        int result = 0;
+        for (int i = 0; i < array.length; i++){
+            if(array[i] <= 0 || array[i] > 200){
+                throw new Exception(String.format("array[%d] = [%d]는 1~200 이어야합니다", i, array[i]));
+            }
+            if (array[i] > heigth){
+                // 키 큰 사람 누적
+                result++;
+            }
+        }
+        return result;
+    }
 }
