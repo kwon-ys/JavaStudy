@@ -97,4 +97,33 @@ public class MathExam {
         }
         return answer;
     }
+
+    public String exam120839(String rsp) throws Exception {
+        if(rsp == null){
+            throw new Exception(String.format("rsp는 null이 되면 안됩니다."));
+        }
+        if(rsp.length() <= 0 || rsp.length() > 100){
+            throw new Exception(String.format("rsp 길이는 1~ 100입니다."));
+        }
+
+        String result = "";
+
+        for (int i = 0; i < rsp.length(); i++){
+            char ch = rsp.charAt(i);
+            if(ch == '2'){
+                result += "0";
+            }
+            else if(ch == '0'){
+                result += "5";
+            }
+            else if(ch == '5'){
+                result += "2";
+            }
+            else{
+                throw new Exception(String.format("rsp[%c] 문자는 '2', '0', '5' 중에 하나이어야 합니다", ch));
+            }
+        }
+
+        return result;
+    }
 }
