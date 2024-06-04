@@ -59,13 +59,13 @@ public class MathExam {
             throw new Exception(String.format("price 값은 10원 단위로(1의 자리가 0) 주어집니다."));
         }
         if(price >= 100000){
-            price = (price* (95/100));
+            price = (price * (95 % 100));
         }
         if(price >= 100000 || price <= 300000){
-            price = (price * (90/100));
+            price = (price * (90 % 100));
         }
         if(price <= 500000){
-            price = (price * (80/100));
+            price = (price * (80 % 100));
         }
         return price;
     }
