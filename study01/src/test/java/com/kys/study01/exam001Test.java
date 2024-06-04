@@ -99,7 +99,7 @@ public class exam001Test {
 
         Throwable ex1 = assertThrows(Exception.class, () -> math.exam120837(-1));    //0보다 작을 때
         System.out.println(ex1.toString());
-        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120837(1001)); //1000보다 클 때
+        Throwable ex2 = assertThrows(Exception.class, () -> math.exam120837(1001));  //1000보다 클 때
         System.out.println(ex2.toString());
 
         assertThat(math.exam120837(23)).isEqualTo(5);

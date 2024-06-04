@@ -94,7 +94,6 @@ public class MathExam {
         }
         if (hp < 3) {
             answer += hp/1;
-
         }
         return answer;
     }
