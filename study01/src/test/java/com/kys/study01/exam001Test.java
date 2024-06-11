@@ -159,4 +159,25 @@ public class exam001Test {
         assertThat(math.exam120899(new int[] {9, 10, 11, 8})).isEqualTo(new int[] {11, 2}); //제일 큰 수 11 위치 2
         assertThat(math.exam120899(new int[] {38, 43, 18, 22, 30, 12, 54})).isEqualTo(new int[] {54, 6}); //제일 큰 수 54 위치 6
     }
+
+    @Test
+    public void numberPrint() throws Exception {
+        int x = 0b1011, y = 0206, z = 0x2A0F;
+        char a = 'A', b = 'B', c = 'C';
+
+        System.out.println(String.format("10진수 : x = %d, y = %d, z = %d", x, y, z));
+        System.out.println(String.format("8진수 : x = %o, y = %o, z = %o", x, y, z));
+        System.out.println(String.format("16진수 : x = %x, y = %x, z = %x", x, y, z));
+        System.out.println(String.format("char : x = %c, y = %c, z = %c", x, y, z));
+
+        System.out.println(String.format("10진수 : a = %d, b = %d, c = %d", (int)a, (int)b, (int)c));
+        System.out.println(String.format("8진수 : a = %o, b = %o, c = %o", (int)a, (int)b, (int)c));
+        System.out.println(String.format("16진수 : a = %x, b = %x, c = %x", (long)a, (byte)b, (short)c)); //long, byte, short 가능
+        System.out.println(String.format("char : a = %c, b = %c, c = %c", a, b, c));
+        {
+            //변수의 값 영향을 받는 우선 순위가 높음
+            
+        }
+    }
+
 }
