@@ -1,0 +1,52 @@
+public class 모닝 extends 기아차 {
+    public static final int cc = 800;
+    public static void Recall() {
+
+    }
+    private Color bodycolor;
+    private Tire[] tires;
+    private int CarNumber carNumber;
+    Getter...
+    Setter...
+
+    public void run() {
+        달린다.;
+    }
+
+    public 모닝(Color color) {
+        // 기본생성자 ( Java가 자동으로 만들어준다. 개발자가 명시적으로 선언하면 선언한 기본생성자를 실행한다.)
+    }
+
+    public 모닝(Color color) {
+        // 기본생성자 (개발자가 선언한다. 이것이 존재하면 Java가 자동으로 만들어주는 기본생성자는 사용 불가능)
+        this.bodycolor = color;
+        // 모닝 서울 22차 9821 = new 모닝(노랑);
+    }
+
+    public 모닝(Color color, Tire[] tires) {
+        // 기본생성자 (개발자가 선언한다. 이것이 존재하면 Java가 자동으로 만들어주는 기본생성자는 사용 불가능)
+        // this.bodycolor = color;
+        this(color);
+        this.tires = tires;
+        // 모닝 서울 22차 9821 = new 모닝(노랑, new Tire[] {160, 160, 160, 160});
+    }
+
+    public 모닝(Color color, Tire[] tires, CarNumber carNumber) {
+        // 기본생성자 (개발자가 선언한다. 이것이 존재하면 Java가 자동으로 만들어주는 기본생성자는 사용 불가능)
+        // this.bodycolor = color;
+        // this.tires= tires;
+        this(bodycolor, tires);
+        this.carNumber = carNumber;
+        // 모닝 서울 22차 9821 = new 모닝(노랑, new Tire[] {160, 160, 160, 160}, new CarNumber("서울22차9821));
+    }
+
+    [접근제한자] 리턴데이터타입 메소드이름(매개변수1이름, 매개변수2이름, ...){
+        메소드에서 실행할 내용 문장들;
+        ...
+    }
+
+    public void add(String name, int ... num){
+    }
+}
+모닝.cc =400;
+모닝.recall();
