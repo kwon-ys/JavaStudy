@@ -608,11 +608,100 @@ package com.kys.study01.mathexam;
 //    }
 //}
 
-import java.util.Scanner;
+/*
+import java.io.*;
+import java.util.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        Student[] students = new Student[n];
+        int size = 0;
+
+        for (int i = 0; i < n; i++) {
+            String name = sc.next();
+            int score = sc.nextInt();
+            students[i] = new Student(score, name);
+            size++;
+        }
+
+        Arrays.sort(students, 0, size, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return Integer.compare(s2.no, s1.no);
+            }
+        });
+
+        for (int i = 0; i < m; i++) {
+            bw.write(students[i].name + "\n");
+        }
+
+        bw.flush();
+    }
+}
+class Student {
+    int no;
+    String name;
+
+    Student(int no, String name) {
+        this.no = no;
+        this.name = name;
+    }
+}*/
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
+        Scanner sc = new Scanner(System.in);
+
+        // 첫 번째 줄에 입력 데이터의 개수 n
+        int n = sc.nextInt();
+        int m = sc.nextInt(); // 출력할 학생 수
+        sc.nextLine(); // 개행 문자 처리
+
+        // 최대 n개의 데이터를 저장할 배열
+        Student[] students = new Student[n];
+        int size = 0; // 현재 배열에 저장된 데이터 개수
+
+        // n개의 데이터 입력
+        for (int i = 0; i < n; i++) {
+            String name = sc.next();
+            int score = sc.nextInt();
+            students[i] = new Student(score, name);
+            size++;
+        }
+
+        // 점수를 기준으로 내림차순 정렬
+        Arrays.sort(students, 0, size, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return Integer.compare(s2.no, s1.no); // 내림차순 정렬
+            }
+        });
+
+        // 정렬된 순서대로 m개의 학생 이름 출력
+        for (int i = 0; i < m; i++) {
+            bw.write(students[i].name + "\n");
+        }
+
+        bw.flush();
+    }
+}
+class Student {
+    int no;
+    String name;
+
+    Student(int no, String name) {
+        this.no = no;
+        this.name = name;
     }
 }
