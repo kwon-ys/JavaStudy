@@ -13,13 +13,15 @@ import java.util.List;
 public class AccountRepository {
 
     public void loadJson(String fileName, List<Account> accountList) throws Exception {
-        if ( fileName == null || fileName.isEmpty() || accountList == null ) {
+        if ( fileName == null || fileName.isEmpty()
+                || accountList == null ) {
             return;
         }
         JSONParser parser = new JSONParser();
         FileReader reader = new FileReader(fileName, Charset.defaultCharset());
-        JSONObject jsonObject = (JSONObject)parser.parse(reader);
+        Object jobj = parser.parse(reader);
 
+        JSONObject jsonObject = (JSONObject) jobj;
         reader.close();
         System.out.print(jsonObject);
 
@@ -35,7 +37,8 @@ public class AccountRepository {
     }
 
     public void saveJson(String fileName, List<Account> accountList) throws Exception {
-        if ( fileName == null || fileName.isEmpty() || accountList == null || accountList.size() <= 0 ) {
+        if ( fileName == null || fileName.isEmpty()
+                || accountList == null || accountList.size() <= 0 ) {
             return;
         }
         JSONArray jsonArray = new JSONArray();
