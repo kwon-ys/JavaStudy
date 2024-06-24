@@ -15,7 +15,7 @@ public class AccountJSONRepositoryTests {
     @Test
     public void JsonToObjectTest() {
         // given 초기값을 준다.
-        String json = "{\"bankAccount\":\"222222\",\"current\":20000,\"name\":\"bbbbb\"}";
+        String json = "{\"bankAccount\":\"111\",\"current\":111,\"name\":\"aaa\"}";
         // when 테스트할 값을 만든다.
         JSONParser jsonParser = new JSONParser();
         Account account = null;
@@ -29,9 +29,9 @@ public class AccountJSONRepositoryTests {
         }
 
         // then assertThat 으로 검사한다.
-        assertThat(account.getName()).isEqualTo("bbbbb");
-        assertThat(account.getBankNumber()).isEqualTo("222222");
-        assertThat(account.getCurrent()).isEqualTo(20000);
+        assertThat(account.getName()).isEqualTo("aaa");
+        assertThat(account.getBankNumber()).isEqualTo("111");
+        assertThat(account.getCurrent()).isEqualTo(111);
     }
 
     private Account getAccountFromJson(JSONObject jsonObject) throws Exception {
@@ -77,7 +77,7 @@ public class AccountJSONRepositoryTests {
     @Test
     public void checkSizeOfArrayFromJSonString() {
         // given, when
-        String str = "{\"accounts\":[{\"bankAccount\":\"11111\",\"current\":70000,\"name\":\"aaaaa\"},{\"bankAccount\":\"222222\",\"current\":20000,\"name\":\"bbbbb\"},{\"bankAccount\":\"3333\",\"current\":30000,\"name\":\"ccccc\"}]}";
+        String str = "{\"accounts\":[{\"bankAccount\":\"11111\",\"current\":70000,\"name\":\"aaaaa\"},{\"bankAccount\":\"111\",\"current\":111,\"name\":\"aaa\"},{\"bankAccount\":\"3333\",\"current\":30000,\"name\":\"ccccc\"}]}";
         // then
         // when 테스트할 값을 만든다.
         JSONParser jsonParser = new JSONParser();
