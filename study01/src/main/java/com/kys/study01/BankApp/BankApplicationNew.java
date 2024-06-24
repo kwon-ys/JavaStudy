@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class BankApplicationNew {
     private AccountService accountService = new AccountService();
+    private AccountRepository accountRepository = new AccountRepository();
 
     private void printHeader() {
         System.out.println("========================================================");
@@ -96,24 +97,7 @@ public class BankApplicationNew {
 
         System.out.print("파일이름:");
         String fileName = input.nextLine();
-
-        JSONParser parser = new JSONParser();
-        FileReader reader = new FileReader(fileName, Charset.defaultCharset());
-        Object jobj = parser.parse(reader);
-
-        JSONObject jsonObject = (JSONObject) jobj;
-        reader.close();
-        System.out.print(jsonObject);
-
-        JSONArray jsonArray = (JSONArray) jsonObject.get("accounts");
-        this.accountService.clear();
-        for ( Object obj : jsonArray ) {
-            JSONObject element = (JSONObject)obj;
-            String name = (String) element.get("name");
-            String bankAccount = (String) element.get("bankAccount");
-            Long current = (Long) element.get("current");
-            this.accountService.addAccount(new Account(name, bankAccount, current.intValue()));
-        }
+        accountRepository.loadJson(fileName, accountService.getAllAccount());
     }
 
     private void saveJson(Scanner input) throws Exception {
@@ -123,22 +107,7 @@ public class BankApplicationNew {
 
         System.out.print("파일이름:");
         String fileName = input.nextLine();
-
-        JSONArray jsonArray = new JSONArray();
-        for ( Account account : this.accountService.getAllAccount() ) {
-            JSONObject jobj = new JSONObject();
-            jobj.put("name", account.getName());
-            jobj.put("bankAccount", account.getBankNumber());
-            jobj.put("current", account.getCurrent());
-            jsonArray.add(jobj);
-        }
-        JSONObject jroot = new JSONObject();
-        jroot.put("accounts", jsonArray);
-
-        FileWriter fileWriter = new FileWriter(fileName, Charset.defaultCharset());
-        fileWriter.write(jroot.toString());
-        fileWriter.flush();
-        fileWriter.close();
+        accountRepository.saveJson(fileName, accountService.getAllAccount());
     }
 
     public static void main(String[] args) {

@@ -177,4 +177,9 @@ public static void main(String[] args) // void main(String[] args) <- 프로토�
 
 
 
+JSON 파일 저장하고 읽기
 
+1. 라이브러리가 필요하다. json-simple 을  maven 의  pom.xml 에 추가하거나 gradle 의  build.gradle 에 추가해야 한다.
+2. 구글에서  maven repository 를 검색해서 홈페이지에 접속하고 json-simple 을 검색한다.
+3. Usage 가 가장 많은 버전을 선택하여, pom.xml 이나 build.gradle 에 추가한다.
+4. 자신의 프로젝트 pom.xml 이나 build.gradle 에 붙여넣기 하고 Maven Update 또는 gradle refresh 를 한다.
