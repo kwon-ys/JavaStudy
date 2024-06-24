@@ -1,4 +1,4 @@
-package com.kys.study01.model;
+package com.kys.study01.BankApp;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.kys.study01;
 
-import com.kys.study01.model.Account;
+import com.kys.study01.BankApp.Account;
 import com.kys.study01.BankApp.AccountService;
 import org.junit.jupiter.api.Test;
 
