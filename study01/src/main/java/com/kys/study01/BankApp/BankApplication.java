@@ -1,23 +1,17 @@
 package com.kys.study01.BankApp;
 
 import com.kys.study01.model.Account;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.nio.charset.Charset;
 import java.util.Scanner;
 
-public class BankApplicationNew {
+public class BankApplication {
     private AccountService accountService = new AccountService();
     private AccountRepository accountRepository = new AccountRepository();
 
     private void printHeader() {
-        System.out.println("========================================================");
+        System.out.println("=========================================================");
         System.out.println("1.계좌생성|2.계좌목록|3.예금|4.출금|5.종료|6.파일읽기|7.파일저장");
-        System.out.println("========================================================");
+        System.out.println("=========================================================");
     }
 
     private int getChoice(Scanner input) throws Exception {
@@ -90,7 +84,7 @@ public class BankApplicationNew {
         return new Account("임시명", bankNumber, money);
     }
 
-    private void loadJson(Scanner input) throws Exception {
+    private void loadFile(Scanner input) throws Exception {
         System.out.println("--------");
         System.out.println("파일읽기");
         System.out.println("--------");
@@ -100,7 +94,7 @@ public class BankApplicationNew {
         accountRepository.loadJson(fileName, accountService.getAllAccount());
     }
 
-    private void saveJson(Scanner input) throws Exception {
+    private void saveFile(Scanner input) throws Exception {
         System.out.println("--------");
         System.out.println("파일저장");
         System.out.println("--------");
@@ -112,7 +106,7 @@ public class BankApplicationNew {
 
     public static void main(String[] args) {
         try {
-            BankApplicationNew bapp = new BankApplicationNew();
+            BankApplication bapp = new BankApplication();
             Scanner input = new Scanner(System.in);
             boolean run = true;
             while(run) {
@@ -135,10 +129,10 @@ public class BankApplicationNew {
                         run = false;
                         break;
                     case 6:
-                        bapp.loadJson(input);
+                        bapp.loadFile(input);
                         break;
                     case 7:
-                        bapp.saveJson(input);
+                        bapp.saveFile(input);
                         break;
                     default:
                         System.out.println("!!! 잘못된 입력입니다. !!!");
