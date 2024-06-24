@@ -8,6 +8,11 @@ public class BankApplication {
     private AccountJSONRepository accountJsonRepository = new AccountJSONRepository();
     private AccountFileRepository accountFileRepository = new AccountFileRepository();
 
+    public BankApplication() {
+        this.accountRepository = this.accountJsonRepository;
+//        this.accountRepository = this.accountFileRepository;
+    }
+
     private void printHeader() {
         System.out.println("=====================================");
         System.out.println("1.계좌생성|2.계좌목록|3.예금|4.출금|5.종료");
@@ -99,6 +104,7 @@ public class BankApplication {
         BankApplication bapp = new BankApplication();
         Scanner input = new Scanner(System.in);
         boolean run = true;
+
 
         try {
             bapp.loadFile();
