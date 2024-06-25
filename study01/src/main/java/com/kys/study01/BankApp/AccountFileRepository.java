@@ -5,7 +5,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class AccountFileRepository implements AccountRepository {
-    private static final String fileName = "data.txt";
+    private String fileName;
+
+    public AccountFileRepository(String filename) {
+        fileName = filename;
+    }
 
     @Override
     public void loadJson(List<Account> accountList) throws Exception {
@@ -31,7 +35,7 @@ public class AccountFileRepository implements AccountRepository {
         FileOutputStream fileOut = new FileOutputStream(fileName);
         OutputStreamWriter writer = new OutputStreamWriter(fileOut, StandardCharsets.UTF_8);
 
-        for ( Account account : accountList ) {
+        for (Account account : accountList) {
             String str = String.format("%s,%s,%d,\n"
                     , account.getName(), account.getBankNumber(), account.getCurrent());
             writer.write(str);

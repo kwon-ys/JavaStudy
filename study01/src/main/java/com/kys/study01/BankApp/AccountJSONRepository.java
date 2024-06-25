@@ -11,8 +11,11 @@ import java.nio.charset.Charset;
 import java.util.List;
 
 public class AccountJSONRepository implements AccountRepository {
-    private static final String fileName = "data.json";
+    private String fileName;
 
+    public AccountJSONRepository(String fileName) {
+        this.fileName = fileName;
+    }
     @Override
     public void loadJson(List<Account> accountList) throws Exception {
         if ( accountList == null ) {
@@ -27,7 +30,7 @@ public class AccountJSONRepository implements AccountRepository {
         JSONObject jsonObject = (JSONObject)parser.parse(reader);
 
         reader.close();
-        System.out.print(jsonObject);
+//        System.out.print(jsonObject);
 
         JSONArray jsonArray = (JSONArray) jsonObject.get("accounts");
         accountList.clear();
