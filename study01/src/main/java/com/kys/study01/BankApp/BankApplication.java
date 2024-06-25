@@ -105,6 +105,7 @@ public class BankApplication {
         String fileName = args[1];
         AccountRepository repository;
         if ( "-j".equals(args[0]) ) {
+            System.out.println(fileName);
             repository = new AccountJSONRepository(fileName);
         } else if ( "-t".equals(args[0]) ) {
             repository = new AccountFileRepository(fileName);
