@@ -99,13 +99,15 @@ public class BankApplication {
 
     public static void main(String[] args) {
         if ( args.length < 1 ) {
-            System.out.println("execute BankApplication -j or -t");
+            System.out.println("execute BankApplication -j or -t filename");
             return;
         }
         AccountRepository repository;
         if ( "-j".equals(args[0]) ) {
+            String fileName = args[1];
             repository = new AccountJSONRepository();
         } else if ( "-t".equals(args[0]) ) {
+            String fileName = args[1];
             repository = new AccountFileRepository();
         } else {
             System.out.println("execute BankApplication -j or -t filename");
