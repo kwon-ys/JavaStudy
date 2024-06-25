@@ -10,19 +10,19 @@ public class AccountFileRepository implements AccountRepository {
     @Override
     public void loadJson(List<Account> accountList) throws Exception {
         File file = new File(fileName);
-        if(file.exists())
-        {
-            BufferedReader inFile = new BufferedReader(new FileReader(file));
-            String sLine = null;
-            accountList.clear();
-            while( (sLine = inFile.readLine()) != null ) {
-                Account account = new Account();
-                String[] items = sLine.split(",");
-                account.setName( items[0] );
-                account.setBankNumber(items[1]);
-                account.setCurrent(Integer.parseInt(items[2]));
-                accountList.add(account);
-            }
+        if (!file.exists()) {
+            return; // 파일이 없을때 실행하면 예외 없도록 처리함
+        }
+        BufferedReader inFile = new BufferedReader(new FileReader(file));
+        String sLine = null;
+        accountList.clear();
+        while ((sLine = inFile.readLine()) != null) {
+            Account account = new Account();
+            String[] items = sLine.split(",");
+            account.setName(items[0]);
+            account.setBankNumber(items[1]);
+            account.setCurrent(Integer.parseInt(items[2]));
+            accountList.add(account);
         }
     }
 
