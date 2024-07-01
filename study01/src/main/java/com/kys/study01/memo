@@ -183,3 +183,22 @@ JSON 파일 저장하고 읽기
 2. 구글에서  maven repository 를 검색해서 홈페이지에 접속하고 json-simple 을 검색한다.
 3. Usage 가 가장 많은 버전을 선택하여, pom.xml 이나 build.gradle 에 추가한다.
 4. 자신의 프로젝트 pom.xml 이나 build.gradle 에 붙여넣기 하고 Maven Update 또는 gradle refresh 를 한다.
+
+
+jar 파일 실행
+java -jar ~~~
+
+
+WireShark
+
+OSI 7 layer 중의 Data Layer
+IPv4 : 4바이트로 이루어진 주소
+0.0.0.0 ~ 255.255.255.255
+A클래스 : A.*.*.*      5.1.2.3, 5.32.38.109
+        최대 16,777,216개 장비가 하나의 네트워크에 구성되어 있다
+B클래스 : A.B.*.*      61.182.2.3,
+        최대 65,536개 장비가 하나의 네트워크에 구성되어 있다
+C클래스 : A.B.C.*
+        최대 256개 장비가 하나의 네트워크에 구성되어 있다
+
+hub :
